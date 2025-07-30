@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Web Contact Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="text">
+                <h1>Contact Me</h1>
+                <h3>A Simple Contact Form Created Using Python Flask</h3>
+                <div class="links">
+                    <a href="https://github.com/Sandesh-Jangir/"><img src="{{ url_for('static', filename='github.svg') }}" alt=""></a>
+                    <a href="https://www.instagram.com/sandesh_jangir.07/"><img src="{{ url_for('static', filename='instagram.svg') }}" alt="">
+                    </a>
+                </div>
+            </div>
+        <form action="/result" method="post">
+            <input type="name" placeholder="Name" name="name" required>
+            <input type="email" placeholder="Email ID" name="email" required>
+            <select name="comment-type" name="type">
+                {% for option in options %}
+                    <option value="{{option}}">{{option}}</option>
+                {% endfor %}
+            </select>
+            <textarea name="comment" id="comment" cols="20" rows="5" placeholder="Type Something..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
